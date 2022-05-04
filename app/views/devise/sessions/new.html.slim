@@ -1,0 +1,18 @@
+.flex-col.flex.items-center.w-full[data-controller="robohash"]
+  = image_tag "#{Faker::Avatar.image(slug: 'Nedzib')}",
+          class: "w-1/2 bg-neutral-100 rounded-full border-2 border-black m-2",
+          id: "roboimg",
+          onerror: "this.src='#{asset_path("robodefault.png")}';"
+  .flex.w-full.items-center.text-center
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.text_field :username, autofocus: true, placeholder: "Username", class: "rounded", data: {target: "robohash.hash", action: "input->robohash#robohash"}
+      = f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "rounded mt-1"
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me, class: "rounded my-2 mr-2"
+          = f.label :remember_me
+      .actions.flex.w-full.items-center
+        = f.submit "Log in", class: "my-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded m-auto"
+  br
+  br
+  = render "devise/shared/log_in_links"
