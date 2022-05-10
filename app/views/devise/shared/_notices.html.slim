@@ -1,0 +1,7 @@
+div
+  - if notice != nil
+    - puts notice
+    p[class="notice text-blue-500 text-xs font-bold my-3"] = notice
+  - if alert != nil
+    - puts alert
+    p[class="alert text-blue-500 text-xs font-bold my-3"] = alert

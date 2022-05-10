@@ -1,6 +1,6 @@
 .flex-col.flex.items-center.w-full[data-controller="robohash"]
   = image_tag "#{Faker::Avatar.image(slug: 'Nedzib')}",
-          class: "w-1/2 bg-neutral-100 rounded-full border-2 border-black m-2",
+          class: "w-1/2 bg-neutral-100 rounded-full border-2 border-black m-2 mb-5",
           id: "roboimg",
           onerror: "this.src='#{asset_path("robodefault.png")}';"
   .flex.w-full.items-center.text-center
@@ -13,6 +13,7 @@
           = f.label :remember_me
       .actions.flex.w-full.items-center
         = f.submit "Log in", class: "my-2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded m-auto"
+      = render "devise/shared/error_messages", resource: resource
   br
   br
   = render "devise/shared/log_in_links"
