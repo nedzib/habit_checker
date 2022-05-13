@@ -78,3 +78,4 @@ gem 'devise'
 gem 'slim'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'letter_opener', '~> 1.4', '>= 1.4.1'
+gem "view_component"
