@@ -1,11 +1,17 @@
-.fixed.bottom-0.w-full
+.fixed.bottom-0.w-full.select-none
   .w-full.h-auto.flex.flex-row
-    .text-center.w-1/3.border.border-primary-darken.py-2.rounded-tl-3xl.bg-primary
-      .text-text-contrast.text-2xl
-        i.far.fa-user.ml-2
-    .text-center.w-1/3.border.border-primary-darken.py-2.bg-primary
-      .text-text-contrast.text-2xl
-        i.far.fa-clipboard-list-check.ml-2
-    .text-center.w-1/3.border.border-primary-darken.py-2.rounded-tr-3xl.bg-primary-active
-      .text-text-contrast.text-2xl
-        i.far.fa-chart-line.ml-2
+    .w-1/3
+      = link_to profile_path
+        .text-center.w-full.border.border-primary-darken.py-2.rounded-tl-3xl[class="#{current_page?(profile_path) ? 'bg-primary-active' : 'bg-primary'}"]
+          .text-text-contrast.text-2xl
+            i.far.fa-user.ml-2
+    .w-1/3
+      = link_to root_path
+        .text-center.w-full.border.border-primary-darken.py-2[class="#{current_page?(root_path) ? 'bg-primary-active' : 'bg-primary'}"]
+          .text-text-contrast.text-2xl
+            i.far.fa-clipboard-list-check.ml-2
+    .w-1/3
+      = link_to statistics_path
+        .text-center.w-full.border.border-primary-darken.py-2.rounded-tr-3xl[class="#{current_page?(statistics_path) ? 'bg-primary-active' : 'bg-primary'}"]
+          .text-text-contrast.text-2xl
+            i.far.fa-chart-line.ml-2

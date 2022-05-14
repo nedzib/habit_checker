@@ -18,7 +18,7 @@ module.exports = {
       colors: {
         'primary': '#3f51b5',
         'primary-darken': '#2c387e',
-        'primary-active': '#565f97',
+        'primary-active': '#1f285a',
         'secondary': '#243c5a',
         'text-contrast': '#f9f9fc',
         'other': '#243c5a',
