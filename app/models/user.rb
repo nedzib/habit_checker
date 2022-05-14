@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable, :authentication_keys => [:username]
 
+  has_one :routine
+
   validates :username, presence: true, uniqueness: true
   validates_format_of :email, :with => /\A\S+@.+\.\S+\z/
   validates :email, presence: true

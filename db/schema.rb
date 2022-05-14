@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_22_124249) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_14_161748) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.bigint "routine_id", null: false
+    t.string "name", default: "", null: false
+    t.text "description", default: "", null: false
+    t.integer "repetition", null: false
+    t.integer "repetition_spacing", null: false
+    t.string "icon", default: "", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["routine_id"], name: "index_activities_on_routine_id"
+  end
+
+  create_table "attempts", force: :cascade do |t|
+    t.bigint "activity_id", null: false
+    t.integer "result", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_attempts_on_activity_id"
+  end
+
+  create_table "routines", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_routines_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,4 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_22_124249) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities", "routines"
+  add_foreign_key "attempts", "activities"
+  add_foreign_key "routines", "users"
 end
