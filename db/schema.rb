@@ -18,8 +18,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_14_161748) do
     t.bigint "routine_id", null: false
     t.string "name", default: "", null: false
     t.text "description", default: "", null: false
-    t.integer "repetition", null: false
-    t.integer "repetition_spacing", null: false
     t.string "icon", default: "", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
