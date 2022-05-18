@@ -5,5 +5,5 @@
       .flex.flex-col
         h1
           = attempt.activity.name
-    div.flex
-      i.far.mr-2.text-2xl.self-center[class = "fa-#{attempt.success? ? "check-square text-primary" : "square"}" data-reflex="click->Test#testsd" data-attempt=attempt.id]
+    div.flex[id = "check-#{attempt.id}"]
+      i.far.mr-2.text-2xl.self-center[class = "fa-#{attempt.success? ? "check-square text-primary" : "square"}" data-reflex-root="#check-#{attempt.id}" data-reflex="click->Check#attempt_checked" data-attempt=attempt.id]

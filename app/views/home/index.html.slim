@@ -1,7 +1,7 @@
 h1.mt-4.mb-1.m-auto
   = Time.now.strftime('%d/%m/%Y')
 
-div#attempts_container
+div
   =render HomeAttempt::Component.new(attempts: @attempts)
 
 i.far.fa-plus-circle.mt-3.mb-0.m-auto.text-4xl.text-primary-darken
