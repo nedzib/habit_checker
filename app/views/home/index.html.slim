@@ -4,5 +4,5 @@ h1.mt-4.mb-1.m-auto
 div
   =render HomeAttempt::Component.new(attempts: @attempts)
 
-i.far.fa-plus-circle.mt-3.mb-0.m-auto.text-4xl.text-primary-darken
+i.far.fa-plus-circle.mt-3.mb-0.m-auto.text-4xl.text-primary-darken[ data-reflex="click->Modal#show_modal" data-selector="#modal-new-activity"]
 =render NewActivityModal::Component.new()
