@@ -1,1 +1,17 @@
-.bg-black.w-full.h-full.absolute.z-50.opacity-50
+.bg-black.w-full.h-full.absolute.z-40.opacity-50
+.w-full.h-full.absolute.z-50
+  .opacity-100.bg-white.m-5.p-5.rounded-xl
+    = form_with model: @activity, class: "contents" do |form|
+      .w-full.text-right
+        i.far.fa-times-circle.text-2xl.text-primary-darken
+      .mb-3
+        = form.text_field :name, required: true, placeholder: "Nombre", class: "border-2 border-primary block shadow rounded-md outline-none px-3 py-2 mt-2 w-full"
+      .mb-3
+        = form.text_area :description, required: true, placeholder: "Descripción", rows: 4, class: "border-2 border-primary block shadow rounded-md outline-none px-3 py-2 mt-2 w-full"
+      .mb-3
+        = form.text_field :icon, required: true, placeholder:"icon", class: "border-2 border-primary block shadow rounded-md outline-none px-3 py-2 mt-2 w-full"
+        h1.text-sm.ml-2
+          = "Búscalo en "
+          = link_to "FontAwesomeV5", "https://fontawesome.com/v5/search", target: "_blank", class: "text-primary"
+      .inline
+        = form.submit value: "Crear", class: "rounded-full py-2 px-4 bg-primary text-white inline-block font-medium cursor-pointer"
