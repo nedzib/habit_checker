@@ -80,3 +80,4 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 gem "view_component"
 gem "stimulus_reflex", "3.5.0.pre8"
+gem "clockwork", "~> 3.0"
