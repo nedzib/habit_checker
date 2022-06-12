@@ -11,4 +11,8 @@ class Activity < ApplicationRecord
     disabled: 1,
   }, _default: :active
 
+  def has_today_attempt?
+    Attempt.where(activity: self, created_at: Time.now.beginning_of_day..Time.now.end_of_day).any?
+  end
+
 end

@@ -15,8 +15,8 @@ module Clockwork
       config[:thread] = true
     end
 
-    every(10.seconds, 'Put a message', tz: 'America/Bogota', thread: true) do
-      p "Mensaje enviado desde clock"
+    every(1.days, 'Close attempts', at: '00:00', tz: 'America/Bogota', thread: true) do
+      CloseAttemptsJob.perform_later()
     end
 
   rescue StandardError => e
